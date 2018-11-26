@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}CatchPoint{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         {% block stylesheets %}{% endblock %}
@@ -21,14 +21,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link {% if current_menu is defined and current_menu == 'home' %} active {% endif %}" href="{{ path('home') }}">Accueil<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Règles</a>
+                    <a class="nav-link {% if current_menu is defined and current_menu == 'rules' %} active {% endif %}" href="{{ path('rules') }}">Règles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Histoire</a>
+                    <a class="nav-link {% if current_menu is defined and current_menu == 'history' %} active {% endif %}" href="{{ path('history') }}">Histoire</a>
                 </li>
             </ul>
             <form class="log form-inline">

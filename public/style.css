@@ -12,6 +12,7 @@
     }
 }
 
+
 .inscription {
     float:right;
     margin-right: 17px;
@@ -55,8 +56,28 @@
     top: 15%;
 }
 
+.box{
+    background-color: #DDDDDD;
+    font-size: 30px;
+    -moz-box-shadow: 2px 5px 2px 0px #c0c0c0;
+    -webkit-box-shadow: 2px 5px 2px 0px #c0c0c0;
+    -o-box-shadow: 2px 5px 2px 0px #c0c0c0;
+    box-shadow: 2px 5px 2px 0px #c0c0c0;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=158, Strength=2);
+    -moz-border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+}
 
 .container {
     padding-top: 11.5%;
     width: 50%;
+}
+
+.background{
+    background-color: white;
 }

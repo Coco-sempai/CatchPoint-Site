@@ -13,15 +13,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-class HomeController extends AbstractController {
+class HistoryController extends AbstractController {
 
     /**
-     * @Route("/",name="home")
+     * @Route("/history",name="history")
      * @return Response
      */
     public function index():Response{
-        return $this->render('pages/home.html.twig',[
-            'current_menu' => 'home'
+        return $this->render('pages/history.html.twig',[
+            'current_menu' => 'history'
         ]);
     }
 }
