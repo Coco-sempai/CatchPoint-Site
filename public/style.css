@@ -45,13 +45,13 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to right, gray , darkgrey);
+    background-image: linear-gradient(to bottom, #6D6D6D, #929292);
     z-index: -1000;
     top: 15%;
 }
 
-.test {
-    background-color: blue;
-    z-index: 1001;
-}
 
+.container {
+    padding-top: 1%;
+    width: 50%;
+}
