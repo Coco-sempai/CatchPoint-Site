@@ -36,6 +36,7 @@ nav{
     font-size: 20px;
 }
 
+
 body {
     background-color: white;
 }
@@ -44,7 +45,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to right, red , yellow);
+    background-image: linear-gradient(to right, gray , darkgrey);
     z-index: -1000;
     top: 15%;
 }
@@ -53,3 +54,4 @@ body {
     background-color: blue;
     z-index: 1001;
 }
+
