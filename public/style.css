@@ -6,13 +6,6 @@
     padding: 5px;
 }
 
-@media (max-width: 1100px){
-    .deco{
-        display: none;
-    }
-}
-
-
 .inscription {
     float:right;
     margin-right: 17px;
@@ -40,6 +33,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 .nav-item{
@@ -57,6 +51,7 @@
 }
 
 .box{
+    text-align: center;
     background-color: #EEEEEE;
     font-family: BenchNine, sans-serif;
     font-size: 40px;
@@ -74,4 +69,23 @@
 
 .background{
     background-color: white;
+}
+
+@media (max-width: 1100px){
+    .deco{
+        display: none;
+    }
+    .container{
+        margin-top: 150px;
+        min-width: 90vw
+    }
+    .box{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .box{
+        font-size: 20px;
+    }
 }
