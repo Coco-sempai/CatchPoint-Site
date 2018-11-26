@@ -8,8 +8,10 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    <div class="titre mt-2">
-        <h1><img src="res/logo.png" style="width: 4%;height: 4%;margin-right: 5px">CatchPoint</h1>
+    <div class="title mt-1">
+        <img src="res/logo.png" style="width: 60px;height: 60px;margin-right: 5px">
+        CatchPoint
+        <button class="inscription btn btn-outline-success mr-my-sm-0" type="submit">S'inscrire</button>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e0e0e0">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Règles</a>
@@ -27,14 +29,16 @@
                     <a class="nav-link" href="#">Histoire</a>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form class="log form-inline">
                 <input class="form-control mr-sm-2" placeholder="Login">
                 <input class="form-control mr-sm-2" type="password" placeholder="Password">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Se connecter</button>
             </form>
         </div>
     </nav>
-        {% block body %}{% endblock %}
+    <div class="bandeau"></div>
+
+    {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
