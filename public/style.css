@@ -3,11 +3,11 @@
     font-family: BenchNine, sans-serif;
     font-size: 40px;
     background-color: white;
-    margin-bottom: 5px;
+    padding: 5px;
 }
 
 @media (max-width: 1100px){
-    .test{
+    .deco{
         display: none;
     }
 }
@@ -57,20 +57,14 @@
 }
 
 .box{
-    background-color: #DDDDDD;
-    font-size: 30px;
-    -moz-box-shadow: 2px 5px 2px 0px #c0c0c0;
-    -webkit-box-shadow: 2px 5px 2px 0px #c0c0c0;
-    -o-box-shadow: 2px 5px 2px 0px #c0c0c0;
-    box-shadow: 2px 5px 2px 0px #c0c0c0;
-    filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=158, Strength=2);
-    -moz-border-radius: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-border-radius: 5px;
+    background-color: #EEEEEE;
+    font-family: BenchNine, sans-serif;
+    font-size: 40px;
+    -webkit-box-shadow: 2px 3px 2px 0px #c0c0c0;
     border-radius: 5px;
     margin: 10px;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right:10px;
 }
 
 .container {
