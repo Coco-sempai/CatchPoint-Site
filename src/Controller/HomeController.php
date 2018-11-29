@@ -24,4 +24,25 @@ class HomeController extends AbstractController {
             'current_menu' => 'home'
         ]);
     }
+
+    /**
+     * @Route("/rules",name="home.rules")
+     * @return Response
+     */
+    public function rules():Response{
+        return $this->render('pages/rules.html.twig',[
+            'current_menu' => 'rules'
+        ]);
+    }
+
+    /**
+     * @Route("/history",name="home.history")
+     * @return Response
+     */
+    public function history():Response{
+        return $this->render('pages/history.html.twig',[
+            'current_menu' => 'history'
+        ]);
+    }
+
 }

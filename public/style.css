@@ -6,7 +6,7 @@
     padding: 5px;
 }
 
-.inscription {
+.b-inscription {
     float:right;
     margin-right: 17px;
     margin-top: 11px;
@@ -41,21 +41,12 @@
     margin-right: 20px;
 }
 
-.fixed_background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #6D6D6D, #929292);
-    z-index: -1000;
-    top: 15%;
-}
-
 .box{
     text-align: center;
     background-color: #EEEEEE;
     font-family: BenchNine, sans-serif;
     font-size: 40px;
-    -webkit-box-shadow: 2px 3px 2px 0px #c0c0c0;
+    -webkit-box-shadow: 2px 3px 2px 0 #c0c0c0;
     border-radius: 5px;
     margin: 10px;
     padding-left: 10px;
@@ -71,13 +62,40 @@
     background-color: white;
 }
 
+.back_inscription{
+    margin:0;
+    padding:0;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+    background: url(res/back_inscription.jpg) no-repeat fixed 75% 20%;
+}
+
+.fixed_background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #6D6D6D, #929292);
+    z-index: -1000;
+    top: 15%;
+}
+
+.form{
+    position:absolute;
+    left:50%;
+    margin-left:-150px; /* -largeur/2 */
+}
+
+.input{
+    width: auto;
+}
+
 @media (max-width: 1100px){
     .deco{
         display: none;
     }
     .container{
         margin-top: 150px;
-        min-width: 90vw
+        min-width: 90vw;
     }
     .box{
         font-size: 30px;
