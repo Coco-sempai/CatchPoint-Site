@@ -5,12 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Parcours
  *
  * @ORM\Table(name="parcours")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ParcoursRepository")
+ * @UniqueEntity("nomParcours")
  */
 class Parcours
 {
@@ -61,9 +63,9 @@ class Parcours
     /**
      * @var string
      *
-     * @ORM\Column(name="type_parcours", type="string", length=50, nullable=false)
+     * @ORM\Column(name="type_parcours", type="string", length=50, nullable=false,options={"default"=1})
      */
-    private $typeParcours;
+    private $typeParcours=1;
 
     /**
      * @var \Doctrine\Common\Collections\Collection

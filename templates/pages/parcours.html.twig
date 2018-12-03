@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container2 background" style="min-height: 97vh;">
+        <span class="box ml-5">Les parcours</span>
+        <div class="row flex" style="margin:auto">
+            {% for course in parcours %}
+            <div class="card bg-light ml-auto mr-auto mt-4" style="width: 16rem">
+                <img class="card-img-top" src="{{ asset('res/images/img1.jpg') }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="#">{{ course.nomParcours }}</a></h5>
+                    <p class="card-text test">{{ course.descriptionParcours }}</p>
+                    <p class="card-text"><small class="text-muted">{{ course.distance }}km  {{ course.duree }}min</small></p>
+                    <p class="card-text"><small class="text-muted">Difficulté : {{ course.difficulte }}</small></p>
+                </div>
+            </div>
+            {% endfor %}
+            <a href="{{ path('parcours.add') }}" class="ml-auto mr-auto mt-4">
+            <div class="card" style="width: 16rem;background-color: #45EE93">
+                    <img class="card-img-top ml-auto mr-auto mt-5 mb-5" src="{{ asset('res/add.png') }}" style="width: 10rem;">
+                    <div class="card-body">
+                    <h6 class="card-title text-center mb-5">Créer un nouveau parcours</h6>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    <span class="fixed_background"></span>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

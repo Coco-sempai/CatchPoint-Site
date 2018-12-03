@@ -6,15 +6,15 @@ Inscription
 
 {% block body %}
 
-    <div class="container  background" style="min-height: 97vh;">
+    <div class="container  background text-center" style="min-height: 97vh;">
 
     {{ form_start(form, { 'attr': {'class': 'form'} }) }}
         <span class="box">Inscription</span>
-        <div class="col-md-2">{{ form_row(form.login, {'label':'Login','attr': {'class': 'input'} }) }}</div>
+        <div class="col-md-2 mt-4">{{ form_row(form.login, {'label':'Login','attr': {'class': 'input'} }) }}</div>
         <div class="col-md-2">{{ form_row(form.mdp, {'label':'Password','attr': {'class': 'input'} }) }}</div>
         <div class="col-md-2">{{ form_row(form.nomUtilisateur, {'label':'Nom','attr': {'class': 'input'} }) }}</div>
         <div class="col-md-2">{{ form_row(form.prenomUtilisateur, {'label':'Prénom','attr': {'class': 'input'} }) }}</div>
-        <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
+        <button class="btn btn-primary mt-4">{{ button|default('Enregistrer') }}</button>
 
     {{ form_end(form) }}
 

@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ParcoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,6 +43,19 @@ class HomeController extends AbstractController {
     public function history():Response{
         return $this->render('pages/history.html.twig',[
             'current_menu' => 'history'
+        ]);
+    }
+
+    /**
+     * @Route("/parcours",name="home.parcours")
+     * @param ParcoursRepository $repository
+     * @return Response
+     */
+    public function showParcours(ParcoursRepository $repository):Response{
+        $parcours = $repository->findAll();
+        return $this->render('pages/parcours.html.twig',[
+            'current_menu' => 'parcours',
+            'parcours' => $parcours
         ]);
     }
 

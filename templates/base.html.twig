@@ -34,6 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link {% if current_menu is defined and current_menu == 'history' %} active {% endif %}" href="{{ path('home.history') }}">Histoire</a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'parcours' %} active {% endif %}" href="{{ path('home.parcours') }}">Parcours<span class="sr-only">(current)</span></a>
+                    </li>
                 </ul>
                 <form class="log form-inline">
                     {% if user is defined %}
