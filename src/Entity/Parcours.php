@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Parcours
@@ -35,9 +36,9 @@ class Parcours
     /**
      * @var float
      *
-     * @ORM\Column(name="distance", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="distance", type="float", precision=10, scale=0, nullable=false, options={"default"=5})
      */
-    private $distance;
+    private $distance=5;
 
     /**
      * @var int
@@ -49,13 +50,13 @@ class Parcours
     /**
      * @var int
      *
-     * @ORM\Column(name="duree", type="integer", nullable=false)
+     * @ORM\Column(name="duree", type="integer", nullable=false,options={"default"=5})
      */
-    private $duree;
+    private $duree=5;
 
     /**
      * @var string
-     *
+     * @Assert\Length(max="500")
      * @ORM\Column(name="description_parcours", type="string", length=50, nullable=false)
      */
     private $descriptionParcours;

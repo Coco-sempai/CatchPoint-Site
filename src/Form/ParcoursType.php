@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Parcours;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,10 +15,10 @@ class ParcoursType extends AbstractType
     {
         $builder
             ->add('nomParcours')
-            ->add('distance')
-            ->add('difficulte')
-            ->add('duree')
-            ->add('descriptionParcours')
+            ->add('difficulte',ChoiceType::class,[
+                'choices'=> ["Débutant"=>1,"Amateur"=>2,"Intermédiaire"=>3,"Avancé"=>4,"Expert"=>5]
+            ])
+            ->add('descriptionParcours',TextareaType::class)
         ;
     }
 

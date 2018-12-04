@@ -6,17 +6,29 @@
 
 {% block body %}
 
-    <div class="container  background" style="min-height: 97vh;">
+    <div class="container2  background" style="min-height: 100vh;">
+        <span class="box ml-5">Nouveau parcours</span>
 
-        {{ form_start(form, { 'attr': {'class': 'form'} }) }}
-        <span class="box">Création d'un parcours</span>
-        <div class="col-md-2">{{ form_row(form.nomParcours, {'label':'Titre du parcours','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-5">{{ form_row(form.descriptionParcours, {'label':'Description (500 caractères max.)','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">{{ form_row(form.distance, {'label':'Longueur (en km)','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">{{ form_row(form.duree, {'label':'Durée (en min)','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">{{ form_row(form.difficulte, {'label':'Difficulté','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">FICHIER GPX</div>
-        <button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
+        {{ form_start(form) }}
+        <div class="card m-5 bg-light">
+            <h5 class="card-header">Étape 1</h5>
+            <div class="card-body">
+                <p class="card-text">{{ form_row(form.nomParcours, {'label':'Nom du parcours' }) }}</p>
+                <p class="card-text">{{ form_row(form.descriptionParcours, {'label':'Description (500 caractères max.)'}) }}</p>
+                <p class="card-text">{{ form_row(form.difficulte, {'label':'Difficulté' }) }}</p>
+            </div>
+        </div>
+        <div class="card m-5 bg-light">
+            <h5 class="card-header">Étape 2</h5>
+            <div class="card-body">
+                <p class="card-text">Fichier GPX : <input type="file" class="ml-2" accept=".gpx">
+                </p>
+            </div>
+        </div>
+        <div class="col">
+
+        </div>
+        <button class="btn btn-success" style="display: block;margin: auto">{{ button|default('Enregistrer') }}</button>
 
         {{ form_end(form) }}
 
