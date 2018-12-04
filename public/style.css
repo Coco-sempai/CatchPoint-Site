@@ -96,7 +96,7 @@
     width: auto;
 }
 
-.test {
+.text-max {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

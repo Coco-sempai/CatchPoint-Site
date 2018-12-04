@@ -7,6 +7,7 @@ use App\Entity\Parcours;
 use App\Form\ParcoursType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -50,10 +51,44 @@ class ParcoursController extends AbstractController{
 
         return $this->render('pages/AddParcours.html.twig',[
             'parcours'=>$parcours,
-            'form'=>$form->createView()
+            'form'=>$form->createView(),
+            'current_menu' => 'parcours'
         ]);
     }
 
+    /**
+     * @Route("/{slug}-{id}", name="parcours.show", requirements={"slug": "[a-zA-Z0-9\-]*"})
+     * @param Parcours $parcours
+     * @param string $slug
+     * @return Response
+     */
+    public function show(Parcours $parcours, string $slug): Response{
+        if ($parcours->getSlug() !== $slug){
+            return $this->redirectToRoute('home.parcours', [
+                'id'=> $parcours->getIdParcours(),
+                'slug'=>$parcours->getSlug()
+            ], 301);
+        }
+        return $this->render('pages/showParcours.html.twig',[
+            'parcours' => $parcours,
+            'current_menu' => 'parcours'
+        ]);
+    }
+
+    /**
+     * @Route("parcours/{id}", name = "parcours.delete", methods="DELETE")
+     * @param Parcours $parcours
+     * @param Request $req
+     * @return RedirectResponse
+     */
+    public function delete(Parcours $parcours, Request $req){
+        if($this->isCsrfTokenValid('delete' . $parcours->getIdParcours(),$req->get('_token'))){
+            $this->em->remove($parcours);
+            $this->addFlash('success','Parcours supprimé avec succès');
+            $this->em->flush();
+        }
+        return $this->redirectToRoute('home.parcours');
+    }
 }
 
 

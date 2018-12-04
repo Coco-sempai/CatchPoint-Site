@@ -6,17 +6,24 @@ Inscription
 
 {% block body %}
 
-    <div class="container  background text-center" style="min-height: 97vh;">
+    <div class="container2  background" style="min-height: 97vh;">
+        <span class="box ml-4">Inscription</span>
+    {{ form_start(form) }}
 
-    {{ form_start(form, { 'attr': {'class': 'form'} }) }}
-        <span class="box">Inscription</span>
-        <div class="col-md-2 mt-4">{{ form_row(form.login, {'label':'Login','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">{{ form_row(form.mdp, {'label':'Password','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">{{ form_row(form.nomUtilisateur, {'label':'Nom','attr': {'class': 'input'} }) }}</div>
-        <div class="col-md-2">{{ form_row(form.prenomUtilisateur, {'label':'Prénom','attr': {'class': 'input'} }) }}</div>
-        <button class="btn btn-primary mt-4">{{ button|default('Enregistrer') }}</button>
+        <div class="card m-5 bg-light">
+            <div class="card-body m-auto text-center" style="width: 16rem">
 
-    {{ form_end(form) }}
+                <p class="card-text text-center" >{{ form_row(form.login, {'label':'Login' }) }}</p>
+                <p class="card-text">{{ form_row(form.mdp, {'label':'Mot de passe'}) }}</p>
+
+                <p class="card-text">{{ form_row(form.nomUtilisateur, {'label':'Nom' }) }}</p>
+                <p class="card-text">{{ form_row(form.prenomUtilisateur, {'label':'Prénom' }) }}</p>
+
+            </div>
+        </div>
+        <button class="btn btn-success" style="display: block;margin: auto">{{ button|default('Enregistrer') }}</button>
+
+        {{ form_end(form) }}
 
     </div>
 

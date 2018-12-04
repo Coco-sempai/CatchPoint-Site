@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title parcours.nomParcours %}
+
+{% block body %}
+    <div class="container2 background" style="height: 97vh">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success ml-5 mr-5 mt-5">
+                {{ message }}
+            </div>
+        {% endfor %}
+            <div class="row">
+                <div class="col-md-4 ml-4">
+                    <h1>{{ parcours.nomParcours }}</h1>
+                    <h4>{{ parcours.distance }}km - {{ parcours.duree }}min</h4>
+                    <p>{{ parcours.descriptionParcours }}</p>
+                    <form method="post" action="{{ path('parcours.delete',{id: parcours.idParcours}) }}" style="display: inline-block"
+                          onsubmit="return confirm('Etes vous vraiment sûr ?')">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger">Supprimer</button>
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parcours.idParcours) }}">
+                </div>
+            </div>
+    </div>
+
+    <span class="fixed_background"></span>
+{% endblock %}
+

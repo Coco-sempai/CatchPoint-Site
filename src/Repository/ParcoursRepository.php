@@ -19,15 +19,6 @@ class ParcoursRepository extends ServiceEntityRepository
         parent::__construct($registry, Parcours::class);
     }
 
-    /**
-     * @return Parcours[]
-     */
-    public function findAl() : array {
-        return $this->createQueryBuilder('p')
-            ->orderBy('p.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
 
     // /**
     //  * @return Parcours[] Returns an array of Parcours objects

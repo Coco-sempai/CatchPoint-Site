@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Cocur\Slugify\Slugify;
 
 /**
  * Parcours
@@ -115,6 +116,10 @@ class Parcours
     public function getNomParcours(): ?string
     {
         return $this->nomParcours;
+    }
+
+    public function getSlug(): string{
+        return (new Slugify())->slugify($this->nomParcours);
     }
 
     public function setNomParcours(string $nomParcours): self
