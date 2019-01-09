@@ -27,6 +27,9 @@ class ParcoursController extends AbstractController{
     private $em;
 
 
+    const MAX_WAYPOINTS_AMMOUNT = 10;
+
+
     public function __construct(ObjectManager $em)
     {
         $this->em = $em;
@@ -49,11 +52,12 @@ class ParcoursController extends AbstractController{
             return $this->redirectToRoute('home.parcours');
         }
 
-        return $this->render('pages/AddParcours.html.twig',[
-            'parcours'=>$parcours,
-            'form'=>$form->createView(),
-            'current_menu' => 'parcours'
-        ]);
+        return $this->render('pages/AddParcours.html.twig', array(
+            'parcours' => $parcours,
+            'form' =>$form->createView(),
+            'current_menu' => 'parcours',
+            'MAX_WAYPOINTS_AMMOUNT' => self::MAX_WAYPOINTS_AMMOUNT
+        ));
     }
 
     /**
