@@ -16,6 +16,7 @@ var waypointLatField;
 var waypointLongField;
 var waypointNameField;
 var waypointHintField;
+var waypointsInput;
 
 var currentWaypointNumber = 0;
 
@@ -42,6 +43,8 @@ function init(loc) {
     waypointLongField = document.getElementById("waypointLongField");
     waypointNameField = document.getElementById("waypointNameField");
     waypointHintField = document.getElementById("waypointHintField");
+
+    waypointsInput = document.getElementById("waypointsInput");
 
     map = window.L.map('map').setView([lat, lon], zoom);
 
@@ -210,6 +213,23 @@ function clearAll() {
 }
 
 function submit() {
+
+    /*
+    We can't turn Waypoints into JSON because it contains a marker object with a lot of useless properties,
+    so we have to turn Waypoints into SendableWaypoints
+     */
+    if (waypoints.length < MIN_WAYPOINTS_AMMOUNT) {
+
+        // TODO: better alert
+        alert("Parcours doit comporter au minimum " + MIN_WAYPOINTS_AMMOUNT + " points.") ; return
+    }
+
+    let sendableWaypointsArray = Array();
+
+    for (let i = 0; i < (waypoints.length); i++) { sendableWaypointsArray.push(new SendableWaypoint(waypoints[i], i)); }
+
+    waypointsInput.value = JSON.stringify(sendableWaypointsArray);
+
     document.parcours.submit();
 }
 

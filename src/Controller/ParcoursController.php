@@ -29,6 +29,7 @@ class ParcoursController extends AbstractController{
     private $em;
 
 
+    const MIN_WAYPOINTS_AMMOUNT = 3;
     const MAX_WAYPOINTS_AMMOUNT = 10;
 
 
@@ -47,9 +48,32 @@ class ParcoursController extends AbstractController{
         $form = $this->createForm(ParcoursType::class,$parcours);
         $form->handleRequest($req);
 
+
+
         if ($form->isSubmitted() && $form->isValid()){
+
+
+            $waypoints = json_decode($_POST['waypointsData']);
+
+            // TODO:
+            /* for each waypoint verify it has a name, hint, latlng... + types
+             * verify waypoints.length between min and max
+             * resend the waypoints to the page if anything's wrong so the user don't loose everything
+             * make the webmap able to place the points it received on init (javascript)
+             * process the waypoints if everything is correct (add to db etc..)
+             */
+
+
+            /*print("<pre>");
+            print_r($waypoints);
+            print("</pre>");
+
+            die();
+            */
+
             $this->em->persist($parcours);
             $this->em->flush();
+
             $this->addFlash('success','Parcours créé avec succès');
             return $this->redirectToRoute('home.parcours');
         }
@@ -58,6 +82,7 @@ class ParcoursController extends AbstractController{
             'parcours' => $parcours,
             'form' =>$form->createView(),
             'current_menu' => 'parcours',
+            'MIN_WAYPOINTS_AMMOUNT' => self::MIN_WAYPOINTS_AMMOUNT,
             'MAX_WAYPOINTS_AMMOUNT' => self::MAX_WAYPOINTS_AMMOUNT
         ));
     }
@@ -137,5 +162,18 @@ class ParcoursController extends AbstractController{
     }
 
 }
+
+/*class Waypoint {
+
+    public $name;
+    public $hint;
+    public $lat, $lng;
+    public $index;
+
+    function __construct($object) {
+
+    }
+
+}*/
 
 

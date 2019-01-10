@@ -35,8 +35,10 @@
                 <script>
                     const path = "{{ asset('res/images/') }}";
                     const MAX_WAYPOINTS_AMMOUNT = "{{ MAX_WAYPOINTS_AMMOUNT }}";
+                    const MIN_WAYPOINTS_AMMOUNT = "{{ MIN_WAYPOINTS_AMMOUNT }}";
                 </script>
                 <script type="text/javascript" src="{{ asset('res/js/Waypoint.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('res/js/SendableWaypoint.js') }}"></script>
                 <script type="text/javascript" src="{{ asset('res/js/controller.js') }}"></script>
                 <style type="text/css"> #map{ height:400px; } </style>
 
@@ -74,6 +76,8 @@
                 <a onclick="clearAll()" class="mapButton btn btn-success" style="color: white">Clear all</a>
 
                 </p>
+
+                <input name="waypointsData" type="hidden" id="waypointsInput">
 
             </div>
         </div>
