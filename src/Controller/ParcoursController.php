@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Parcours;
+use App\Entity\Points;
 use App\Form\ParcoursType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,6 +12,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * Created by PhpStorm.
@@ -93,6 +95,47 @@ class ParcoursController extends AbstractController{
         }
         return $this->redirectToRoute('home.parcours');
     }
+
+
+    /**
+     * @Route("/api/parcours", name="parcours.getParcours", methods={"GET"}))
+     *
+     */
+    public function getParcours(Request $request) {
+        $repository = $this->getDoctrine()->getRepository(Parcours::class);
+        $parcours=$repository->findAll();
+        dump($parcours);
+
+        $data =  $this->get('serializer')->serialize($parcours, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+    }
+
+
+    /**
+     * @Route("/api/parcours/depart", name="parcours.getDepart", methods={"GET"}))
+     *
+     */
+    public function getDepart(Request $request) {
+        $repository = $this->getDoctrine()->getRepository(Points::class);
+        $points= $repository->findBy(
+            ['depart' => true]
+        );
+        dump($points);
+
+        $data =  $this->get('serializer')->serialize($points, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+    }
+
 }
 
 
