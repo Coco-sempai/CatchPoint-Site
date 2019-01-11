@@ -102,6 +102,4 @@ class Joue
 
         return $this;
     }
-
-
 }

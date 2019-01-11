@@ -94,7 +94,7 @@ var popup = L.popup();
 
 function getNewMarkerName() {
     currentWaypointNumber += 1;
-    return "Point " + (currentWaypointNumber)
+    return "Point " + (currentWaypointNumber);
 }
 
 function updateMarkersList() {

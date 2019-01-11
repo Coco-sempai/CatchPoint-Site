@@ -8,6 +8,8 @@ use App\Entity\Points;
 use App\Form\ParcoursType;
 use Doctrine\Common\Persistence\ObjectManager;
 use ErrorException;
+use PhpParser\Node\Expr\Array_;
+use stdClass;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -141,9 +143,34 @@ class ParcoursController extends AbstractController{
                 'slug'=>$parcours->getSlug()
             ], 301);
         }
+
+        $idParcours = $parcours->getIdParcours();
+
+        $repository = $this->getDoctrine()->getRepository(Points::class);
+
+        $points = $repository->findBy(['parcours_id' => $parcours]);
+
+        $result = Array();
+
+        foreach ($points as $key => $point) {
+
+            $pointToSend = new stdClass();
+            $pointToSend->name = $point->getTitrePoint();
+            $pointToSend->hint = $point->getDecriptionPoint();
+            $pointToSend->lat = $point->getLatitude();
+            $pointToSend->lng = $point->getLongitude();
+
+            array_push($result, $pointToSend);
+        }
+
+        $json_points = (json_encode(array_values($result)));
+
+
+
         return $this->render('pages/showParcours.html.twig',[
             'parcours' => $parcours,
-            'current_menu' => 'parcours'
+            'current_menu' => 'parcours',
+            'waypoints' => $json_points
         ]);
     }
 
@@ -154,8 +181,22 @@ class ParcoursController extends AbstractController{
      * @return RedirectResponse
      */
     public function delete(Parcours $parcours, Request $req){
+
         if($this->isCsrfTokenValid('delete' . $parcours->getIdParcours(),$req->get('_token'))){
+
+
+            $idParcoursToDelete = $parcours->getIdParcours();
+
+            // TODO:
+            /* Supprimer les points qui ont parcours_id == $idParcoursToDelete
+             */
+
+
+
+
+
             $this->em->remove($parcours);
+
             $this->addFlash('success','Parcours supprimé avec succès');
             $this->em->flush();
         }
@@ -178,9 +219,7 @@ class ParcoursController extends AbstractController{
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
-
     }
-
 
     /**
      * @Route("/api/parcours/depart", name="parcours.getDepart", methods={"GET"}))
@@ -203,18 +242,5 @@ class ParcoursController extends AbstractController{
     }
 
 }
-
-/*class Waypoint {
-
-    public $name;
-    public $hint;
-    public $lat, $lng;
-    public $index;
-
-    function __construct($object) {
-
-    }
-
-}*/
 
 
