@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="983a871c-29e0-48a9-bdf4-658c1ef61045" name="Default Changelist" comment="TODO: Traitement des points dans parcourscontroller (ajout dans la BDD)&#10;+ fixer le form buggé">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/AddParcours.html.twig" afterPath="$PROJECT_DIR$/templates/pages/AddParcours.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -154,11 +155,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ParcoursController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ParcoursController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ParcoursController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="107" column="17" lean-forward="false" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+            <state relative-caret-position="207">
+              <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -174,11 +175,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddParcours.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddParcours.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/pages/AddParcours.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="92" column="42" lean-forward="true" selection-start-line="92" selection-start-column="42" selection-end-line="92" selection-end-column="42" />
+            <state relative-caret-position="342">
+              <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -321,11 +322,11 @@
         <option value="$PROJECT_DIR$/public/res/css/map.css" />
         <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/public/res/css/webmap.css" />
-        <option value="$PROJECT_DIR$/templates/pages/AddParcours.html.twig" />
         <option value="$PROJECT_DIR$/templates/pages/showParcours.html.twig" />
         <option value="$PROJECT_DIR$/public/res/js/SendableWaypoint.js" />
         <option value="$PROJECT_DIR$/public/res/js/controller.js" />
         <option value="$PROJECT_DIR$/src/Controller/ParcoursController.php" />
+        <option value="$PROJECT_DIR$/templates/pages/AddParcours.html.twig" />
       </list>
     </option>
   </component>
@@ -625,7 +626,7 @@
       <workItem from="1547112093350" duration="1506000" />
       <workItem from="1547139119044" duration="12933000" />
       <workItem from="1547190440756" duration="1356000" />
-      <workItem from="1547196960600" duration="404000" />
+      <workItem from="1547196960600" duration="623000" />
     </task>
     <task id="LOCAL-00001" summary="navbar">
       <created>1543240840737</created>
@@ -718,11 +719,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547197084405</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="TODO: Traitement des points dans parcourscontroller (ajout dans la BDD)&#10;+ fixer le form buggé">
+      <created>1547198021450</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1547198021450</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105701000" />
+    <option name="totallyTimeSpent" value="105920000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1145,16 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/AddParcours.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="92" column="42" lean-forward="true" selection-start-line="92" selection-start-column="42" selection-end-line="92" selection-end-column="42" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Points.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
@@ -1165,9 +1163,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ParcoursController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="107" column="17" lean-forward="false" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
+        <state relative-caret-position="207">
+          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/AddParcours.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
