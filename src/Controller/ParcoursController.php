@@ -105,6 +105,8 @@ class ParcoursController extends AbstractController{
                 $newPoint->setDecriptionPoint()
             }*/
 
+            // ok
+
 
             $this->em->persist($parcours);
             $this->em->flush();
