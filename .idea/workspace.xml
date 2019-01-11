@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="983a871c-29e0-48a9-bdf4-658c1ef61045" name="Default Changelist" comment="TODO: Traitement des points dans parcourscontroller (ajout dans la BDD)&#10;+ fixer le form buggé">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ParcoursController.php" afterPath="$PROJECT_DIR$/src/Controller/ParcoursController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -626,7 +625,7 @@
       <workItem from="1547112093350" duration="1506000" />
       <workItem from="1547139119044" duration="12933000" />
       <workItem from="1547190440756" duration="1356000" />
-      <workItem from="1547196960600" duration="118000" />
+      <workItem from="1547196960600" duration="404000" />
     </task>
     <task id="LOCAL-00001" summary="navbar">
       <created>1543240840737</created>
@@ -712,11 +711,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547197005148</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="TODO: Traitement des points dans parcourscontroller (ajout dans la BDD)&#10;+ fixer le form buggé">
+      <created>1547197084405</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1547197084405</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105415000" />
+    <option name="totallyTimeSpent" value="105701000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
