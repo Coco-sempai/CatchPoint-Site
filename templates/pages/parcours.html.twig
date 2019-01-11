@@ -9,6 +9,11 @@
                 {{ message }}
             </div>
         {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger ml-5 mr-5 mt-3">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="row flex" style="margin:auto">
             {% for course in parcours %}
             <div class="card bg-light ml-auto mr-auto mt-3" style="width: 16rem">

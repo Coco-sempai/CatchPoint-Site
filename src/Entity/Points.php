@@ -53,14 +53,18 @@ class Points
 
     /**
      * @var string
-     *
      * @ORM\Column(name="decription_point", type="string", length=50, nullable=false)
      */
     private $decriptionPoint;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
+     * @var string
+     * @ORM\Column(name="titre_point", type="string", length=50, nullable=false)
+     */
+    private $titrePoint;
+
+    /**
+     * @var int
      * @ORM\ManyToMany(targetEntity="Parcours", mappedBy="idPoint")
      */
     private $idParcours;
@@ -70,7 +74,7 @@ class Points
      */
     public function __construct()
     {
-        $this->idParcours = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     public function getIdPoint(): ?int
@@ -138,32 +142,61 @@ class Points
         return $this;
     }
 
+
+    public function getTitrePoint(): ?string
+    {
+        return $this->titrePoint;
+    }
+
+    public function setTitrePoint(string $titrePoint): self
+    {
+        $this->titrePoint = $titrePoint;
+
+        return $this;
+    }
+
     /**
-     * @return Collection|Parcours[]
+     * @return int
      */
-    public function getIdParcours(): Collection
+    public function getIdParcours(): int
     {
         return $this->idParcours;
     }
 
-    public function addIdParcour(Parcours $idParcour): self
+    /**
+     * @param int $idParcours
+     */
+    public function setIdParcours(int $idParcours): void
     {
-        if (!$this->idParcours->contains($idParcour)) {
-            $this->idParcours[] = $idParcour;
-            $idParcour->addIdPoint($this);
-        }
-
-        return $this;
+        $this->idParcours = $idParcours;
     }
 
-    public function removeIdParcour(Parcours $idParcour): self
-    {
-        if ($this->idParcours->contains($idParcour)) {
-            $this->idParcours->removeElement($idParcour);
-            $idParcour->removeIdPoint($this);
-        }
-
-        return $this;
-    }
+//    /**
+//     * @return Collection|Parcours[]
+//     */
+//    public function getIdParcours(): Collection
+//    {
+//        return $this->idParcours;
+//    }
+//
+//    public function addIdParcour(Parcours $idParcour): self
+//    {
+//        if (!$this->idParcours->contains($idParcour)) {
+//            $this->idParcours[] = $idParcour;
+//            $idParcour->addIdPoint($this);
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeIdParcour(Parcours $idParcour): self
+//    {
+//        if ($this->idParcours->contains($idParcour)) {
+//            $this->idParcours->removeElement($idParcour);
+//            $idParcour->removeIdPoint($this);
+//        }
+//
+//        return $this;
+//    }
 
 }

@@ -92,23 +92,29 @@ class ParcoursController extends AbstractController{
 
             if ($err) {
 
-                $this->addFlash('danger','Une erreur est survenue lors de la mise en ligne de votre parcours.');
+                $this->addFlash('error','Une erreur est survenue lors de la mise en ligne de votre parcours.');
                 return $this->redirectToRoute('home.parcours');
             }
 
-
-            /*foreach ($waypoints as $key => $waypoint) {
-
-                $newPoint = new Points();
-                $newPoint->setDecriptionPoint()
-            }*/
-
-            // ok
-
-
             $this->em->persist($parcours);
             $this->em->flush();
+            $idParcours = $parcours->getIdParcours();
 
+            foreach ($waypoints as $key => $waypoint) {
+
+                $newPoint = new Points();
+                $newPoint->setDepart($key==0)
+                    ->setArrive($key==sizeof($waypoints)-1)
+                    ->setTitrePoint($waypoint->name)
+                    ->setLatitude($waypoint->lat)
+                    ->setLongitude($waypoint->lng)
+                    ->setDecriptionPoint($waypoint->hint)
+                    ->setIdParcours($idParcours);
+
+                $this->em->persist($newPoint);
+            }
+
+            $this->em->flush();
             $this->addFlash('success','Parcours créé avec succès');
             return $this->redirectToRoute('home.parcours');
 
