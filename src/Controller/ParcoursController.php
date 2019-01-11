@@ -7,6 +7,7 @@ use App\Entity\Parcours;
 use App\Entity\Points;
 use App\Form\ParcoursType;
 use Doctrine\Common\Persistence\ObjectManager;
+use ErrorException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,38 +45,73 @@ class ParcoursController extends AbstractController{
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function new(Request $req){
-        $parcours = new Parcours();
-        $form = $this->createForm(ParcoursType::class,$parcours);
-        $form->handleRequest($req);
 
+        $parcours = new Parcours();
+        $form = $this->createForm(ParcoursType::class, $parcours);
+        $form->handleRequest($req);
 
 
         if ($form->isSubmitted() && $form->isValid()){
 
-
-            $waypoints = json_decode($_POST['waypointsData']);
-
             // TODO:
             /* for each waypoint verify it has a name, hint, latlng... + types
              * verify waypoints.length between min and max
-             * resend the waypoints to the page if anything's wrong so the user don't loose everything
-             * make the webmap able to place the points it received on init (javascript)
-             * process the waypoints if everything is correct (add to db etc..)
+             *
              */
 
 
-            /*print("<pre>");
-            print_r($waypoints);
-            print("</pre>");
+            $waypoints = json_decode($_POST['waypointsData']);
 
-            die();
-            */
+            $err = false;
+
+            foreach ($waypoints as $key => $waypoint){
+
+                try {
+
+                    $waypoint->name;
+                    $waypoint->hint;
+                    $waypoint->lat;
+                    $waypoint->lng;
+
+
+                } catch (ErrorException $e) { $err = true; }
+            }
+
+            if (!is_array($waypoints)) {
+
+                $err = true;
+
+            } else {
+
+                if (sizeof($waypoints) > $this::MAX_WAYPOINTS_AMMOUNT) {
+                    $err = true;
+                }
+
+                if (sizeof($waypoints) < $this::MIN_WAYPOINTS_AMMOUNT) {
+                    $err = true;
+                }
+            }
+
+            if ($err) {
+
+                $this->addFlash('success','Une erreur est survenue lors de la mise en ligne de votre parcours.');
+                return $this->redirectToRoute('home.parcours');
+            }
+
+
+            /*foreach ($waypoints as $key => $waypoint) {
+
+                $newPoint = new Points();
+                $newPoint->setDecriptionPoint()
+            }*/
+
 
             $this->em->persist($parcours);
             $this->em->flush();
 
             $this->addFlash('success','Parcours créé avec succès');
             return $this->redirectToRoute('home.parcours');
+
         }
 
         return $this->render('pages/AddParcours.html.twig', array(

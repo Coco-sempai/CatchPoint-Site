@@ -8,12 +8,12 @@ class SendableWaypoint {
         this.index = index;
     }*/
 
-    constructor(waypoint, index) {
+    constructor(waypoint) {
         this.name = waypoint.name;
         this.hint = waypoint.hint;
         this.lat = waypoint.getCoordinates().lat;
         this.lng = waypoint.getCoordinates().lng;
-        this.index = index;
+        //this.index = index;
     }
 
 

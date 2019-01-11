@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container2 background" style="height: 97vh">
-        {% for message in app.flashes('success') %}
+        {% for message in app.flashes(['success', 'error']) %}
             <div class="alert alert-success ml-5 mr-5 mt-5">
                 {{ message }}
             </div>

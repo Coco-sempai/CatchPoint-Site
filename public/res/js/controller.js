@@ -226,7 +226,7 @@ function submit() {
 
     let sendableWaypointsArray = Array();
 
-    for (let i = 0; i < (waypoints.length); i++) { sendableWaypointsArray.push(new SendableWaypoint(waypoints[i], i)); }
+    for (let i = 0; i < (waypoints.length); i++) { sendableWaypointsArray.push(new SendableWaypoint(waypoints[i])); }
 
     waypointsInput.value = JSON.stringify(sendableWaypointsArray);
 
