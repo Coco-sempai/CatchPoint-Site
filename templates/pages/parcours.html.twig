@@ -11,7 +11,7 @@
         {% endfor %}
         <div class="row flex" style="margin:auto">
             {% for course in parcours %}
-            <div class="card bg-light ml-auto mr-auto mt-4" style="width: 16rem">
+            <div class="card bg-light ml-auto mr-auto mt-3" style="width: 16rem">
                 <img class="card-img-top" src="{{ asset('res/images/img1.jpg') }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ path('parcours.show', {id: course.idParcours, slug: course.slug}) }}">{{ course.nomParcours }}</a></h5>

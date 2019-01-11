@@ -6,11 +6,11 @@ Inscription
 
 {% block body %}
 
-    <div class="container2  background" style="min-height: 97vh;">
+    <div class="container2 background" style="min-height: 97vh;padding-bottom: 14px">
         <span class="box ml-4">Inscription</span>
     {{ form_start(form) }}
 
-        <div class="card m-5 bg-light">
+        <div class="card mt-4 ml-5 mr-5 mb-2 bg-light">
             <div class="card-body m-auto text-center" style="width: 16rem">
 
                 <p class="card-text text-center" >{{ form_row(form.login, {'label':'Login' }) }}</p>
@@ -21,7 +21,7 @@ Inscription
 
             </div>
         </div>
-        <button class="btn btn-success" style="display: block;margin: auto">{{ button|default('Enregistrer') }}</button>
+        <button class="btn btn-success" style="display: block;margin: auto;">{{ button|default('Enregistrer') }}</button>
 
         {{ form_end(form) }}
 

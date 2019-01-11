@@ -218,6 +218,7 @@ function submit() {
     We can't turn Waypoints into JSON because it contains a marker object with a lot of useless properties,
     so we have to turn Waypoints into SendableWaypoints
      */
+
     if (waypoints.length < MIN_WAYPOINTS_AMMOUNT) {
 
         // TODO: better alert

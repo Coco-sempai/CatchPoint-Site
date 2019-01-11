@@ -14,7 +14,7 @@ use Cocur\Slugify\Slugify;
  *
  * @ORM\Table(name="parcours")
  * @ORM\Entity(repositoryClass="App\Repository\ParcoursRepository")
- * @UniqueEntity("nomParcours")
+ * @UniqueEntity("nomParcours",message="Ce nom est déjà utilisé")
  */
 class Parcours
 {
@@ -29,7 +29,7 @@ class Parcours
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="Veuillez remplir ce champ")
      * @ORM\Column(name="nom_parcours", type="string", length=50, nullable=false)
      */
     private $nomParcours;
@@ -57,6 +57,7 @@ class Parcours
 
     /**
      * @var string
+     * @Assert\NotBlank(message="Veuillez remplir ce champ")
      * @Assert\Length(max="500")
      * @ORM\Column(name="description_parcours", type="string", length=50, nullable=false)
      */

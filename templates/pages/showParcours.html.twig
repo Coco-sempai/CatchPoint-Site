@@ -4,11 +4,6 @@
 
 {% block body %}
     <div class="container2 background" style="height: 97vh">
-        {% for message in app.flashes(['success', 'error']) %}
-            <div class="alert alert-success ml-5 mr-5 mt-5">
-                {{ message }}
-            </div>
-        {% endfor %}
             <div class="row">
                 <div class="col-md-4 ml-4">
                     <h1>{{ parcours.nomParcours }}</h1>

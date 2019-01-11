@@ -50,7 +50,6 @@ class ParcoursController extends AbstractController{
         $form = $this->createForm(ParcoursType::class, $parcours);
         $form->handleRequest($req);
 
-
         if ($form->isSubmitted() && $form->isValid()){
 
             // TODO:
@@ -58,7 +57,6 @@ class ParcoursController extends AbstractController{
              * verify waypoints.length between min and max
              *
              */
-
 
             $waypoints = json_decode($_POST['waypointsData']);
 
@@ -94,7 +92,7 @@ class ParcoursController extends AbstractController{
 
             if ($err) {
 
-                $this->addFlash('success','Une erreur est survenue lors de la mise en ligne de votre parcours.');
+                $this->addFlash('danger','Une erreur est survenue lors de la mise en ligne de votre parcours.');
                 return $this->redirectToRoute('home.parcours');
             }
 

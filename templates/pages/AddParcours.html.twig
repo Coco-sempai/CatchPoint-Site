@@ -6,7 +6,7 @@
 
 {% block body %}
 
-    <div class="container2  background" style="min-height: 100vh;">
+    <div class="container2  background" style="min-height: 100vh; padding-bottom: 50px">
         <span class="box ml-5">Nouveau parcours</span>
 
         {{ form_start(form) }}
@@ -36,13 +36,11 @@
                     const path = "{{ asset('res/images/') }}";
                     const MAX_WAYPOINTS_AMMOUNT = "{{ MAX_WAYPOINTS_AMMOUNT }}";
                     const MIN_WAYPOINTS_AMMOUNT = "{{ MIN_WAYPOINTS_AMMOUNT }}";
-                    console.log("...");
                 </script>
                 <script type="text/javascript" src="{{ asset('res/js/Waypoint.js') }}"></script>
                 <script type="text/javascript" src="{{ asset('res/js/SendableWaypoint.js') }}"></script>
                 <script type="text/javascript" src="{{ asset('res/js/controller.js') }}"></script>
                 <style type="text/css"> #map{ height:400px; } </style>
-
 
                 <div style="width: 100% ; float: left ">
 			        <div id="map" style="width: 70% ; display: inline-block;"></div>
@@ -55,39 +53,31 @@
 		        </div>
 
                 <div id="waypointDetailsContainer" style="display: inline-block">
-                    <b>Lat: <span id="waypointLatField"></span></b>
-                    <br>
-                    <b>Long: <span id="waypointLongField"></span></b>
-                    <br>
-                    <b>Name: <input type="text" id="waypointNameField"></b>
-                    <br>
+                    <b class="ml-3">Latitude: <span class="mr-5" id="waypointLatField"></span></b>
+                    <b>Longitude: <span id="waypointLongField"></span></b>
 
-
-                    <div id="hintContainer">
-                        <b>Description:</b>
-                        <br>
-                        <input type="text" id="waypointHintField">
+                    <div class="form-group col-7 mt-2">
+                        <label><b>Nom:</b></label>
+                        <input type="text" class="form-control" id="waypointNameField" placeholder="nom">
                     </div>
 
-                    <a onclick="applyWaypointChanges()" class="mapButton btn btn-success" style="color: white">Apply</a>
+                    <div class="form-group col-7" id="hintContainer">
+                        <b>Description:</b>
+                        <textarea class="form-control" id="waypointHintField" title="description"></textarea>
+                    </div>
 
-                    <a onclick="deleteWaypoint()" class="mapButton btn btn-success" style="color: white">Delete this waypoint</a>
+                    <button type="button" onclick="applyWaypointChanges()" class="mapButton btn btn-success ml-3" >Appliquer</button>
 
-                </div>
-                <a onclick="clearAll()" class="mapButton btn btn-success" style="color: white">Clear all</a>
+                    <button type="button" onclick="deleteWaypoint()" class="mapButton btn btn-warning">Supprimer ce point</button>
 
-                </p>
+                <button type="button" onclick="clearAll()" class="mapButton btn btn-danger">Tout supprimer</button>
 
                 <input name="waypointsData" type="hidden" id="waypointsInput">
+                </div>
 
             </div>
         </div>
-        <div class="col">
-
-        </div>
-        <a onclick="submit()" class="btn btn-success" style="display: block;margin: auto; width:150px;color:white">{{ button|default('Enregistrer') }}</a>
-        <div style="height: 250px"></div>
-
+        <a onclick="submit()" class="btn btn-success" style="display: block;margin: auto;width: 10%;color: white;">{{ button|default('Enregistrer') }}</a>
         {{ form_end(form) }}
 
     </div>
