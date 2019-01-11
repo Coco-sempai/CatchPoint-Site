@@ -98,7 +98,6 @@ class ParcoursController extends AbstractController{
 
             $this->em->persist($parcours);
             $this->em->flush();
-            $idParcours = $parcours->getIdParcours();
 
             foreach ($waypoints as $key => $waypoint) {
 
@@ -109,7 +108,7 @@ class ParcoursController extends AbstractController{
                     ->setLatitude($waypoint->lat)
                     ->setLongitude($waypoint->lng)
                     ->setDecriptionPoint($waypoint->hint)
-                    ->setIdParcours($idParcours);
+                    ->setParcoursId($parcours);
 
                 $this->em->persist($newPoint);
             }

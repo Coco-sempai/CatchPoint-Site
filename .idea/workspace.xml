@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="983a871c-29e0-48a9-bdf4-658c1ef61045" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ParcoursController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ParcoursController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Points.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Points.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/parcours.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/parcours.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,20 +41,6 @@
         <item name="catchpoint@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="catchpoint: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="catchpoint@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="catchpoint: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="constitue: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="catchpoint@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="catchpoint: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="parcours: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -137,6 +121,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="constitue" value="1" />
           <entry key="css" value="8" />
           <entry key="env" value="4" />
           <entry key="gitignore" value="3" />
@@ -144,7 +129,7 @@
           <entry key="js" value="3" />
           <entry key="json" value="1" />
           <entry key="parcours" value="6" />
-          <entry key="php" value="59" />
+          <entry key="php" value="60" />
           <entry key="sql" value="3" />
           <entry key="twig" value="52" />
           <entry key="utilisateur" value="4" />
@@ -155,11 +140,11 @@
         <counts>
           <entry key=".env file" value="4" />
           <entry key="CSS" value="8" />
-          <entry key="Database Element" value="10" />
+          <entry key="Database Element" value="11" />
           <entry key="Image" value="2" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="59" />
+          <entry key="PHP" value="60" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Scratch" value="3" />
           <entry key="Twig" value="52" />
@@ -172,7 +157,7 @@
           <entry key="css" value="1742" />
           <entry key="dummy" value="1" />
           <entry key="js" value="32" />
-          <entry key="php" value="2655" />
+          <entry key="php" value="2703" />
           <entry key="sql" value="17" />
           <entry key="twig" value="8497" />
           <entry key="txt" value="280" />
@@ -183,7 +168,7 @@
         <counts>
           <entry key="CSS" value="1742" />
           <entry key="JavaScript" value="32" />
-          <entry key="PHP" value="2655" />
+          <entry key="PHP" value="2703" />
           <entry key="PLAIN_TEXT" value="281" />
           <entry key="SQL" value="17" />
           <entry key="Scratch" value="104" />
@@ -195,11 +180,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ParcoursController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+            <state relative-caret-position="34">
+              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
               <folding>
                 <element signature="e#4075#4105#0#PHP" expanded="true" />
               </folding>
@@ -207,11 +192,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Points.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="370">
+              <caret line="171" column="22" lean-forward="true" selection-start-line="171" selection-start-column="22" selection-end-line="171" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -219,7 +204,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Parcours.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-850">
+            <state relative-caret-position="68">
               <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
               <folding>
                 <element signature="e#30#78#0#PHP" expanded="true" />
@@ -319,8 +304,8 @@
         <option value="$PROJECT_DIR$/templates/pages/AddParcours.html.twig" />
         <option value="$PROJECT_DIR$/templates/pages/showParcours.html.twig" />
         <option value="$PROJECT_DIR$/templates/pages/parcours.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ParcoursController.php" />
         <option value="$PROJECT_DIR$/src/Entity/Points.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ParcoursController.php" />
       </list>
     </option>
   </component>
@@ -436,8 +421,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="2580" />
-    <option name="height" value="1410" />
+    <option name="width" value="1750" />
+    <option name="height" value="970" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -585,7 +570,7 @@
       <workItem from="1547139119044" duration="12933000" />
       <workItem from="1547190440756" duration="1356000" />
       <workItem from="1547196960600" duration="623000" />
-      <workItem from="1547207687189" duration="4467000" />
+      <workItem from="1547207687189" duration="5182000" />
     </task>
     <task id="LOCAL-00001" summary="navbar">
       <created>1543240840737</created>
@@ -692,11 +677,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547209308714</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Mise en forme creation parcours">
+      <created>1547212174989</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1547212174989</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116325000" />
+    <option name="totallyTimeSpent" value="117040000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -709,6 +701,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13959731" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -722,7 +715,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974318" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3293979" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.31231672" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.31231672" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.14250207" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -730,7 +723,7 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.20402685" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.20402685" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -939,9 +932,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://7b9c342e-567a-46cd-b011-695ef1606f51/schema/catchpoint/table/constitue">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Passe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Parcours.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
+        <state relative-caret-position="68">
           <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
           <folding>
             <element signature="e#30#78#0#PHP" expanded="true" />
@@ -949,20 +954,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ParcoursController.php">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Points.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-          <folding>
-            <element signature="e#4075#4105#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="370">
+          <caret line="171" column="22" lean-forward="true" selection-start-line="171" selection-start-column="22" selection-end-line="171" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Points.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/ParcoursController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="34">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="e#4075#4105#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

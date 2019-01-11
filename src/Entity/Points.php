@@ -64,10 +64,10 @@ class Points
     private $titrePoint;
 
     /**
-     * @var int
-     * @ORM\ManyToMany(targetEntity="Parcours", mappedBy="idPoint")
+     * @ORM\ManyToOne(targetEntity="Parcours")
+     * @ORM\JoinColumn(name="parcours_id", referencedColumnName="id_parcours")
      */
-    private $idParcours;
+    private $parcours_id;
 
     /**
      * Constructor
@@ -155,21 +155,18 @@ class Points
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getIdParcours(): int
+    public function getParcoursId(): ?Parcours
     {
-        return $this->idParcours;
+        return $this->parcours_id;
     }
 
-    /**
-     * @param int $idParcours
-     */
-    public function setIdParcours(int $idParcours): void
+    public function setParcoursId(?Parcours $parcours_id): self
     {
-        $this->idParcours = $idParcours;
+        $this->parcours_id = $parcours_id;
+
+        return $this;
     }
+
 
 //    /**
 //     * @return Collection|Parcours[]
