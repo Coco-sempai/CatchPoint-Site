@@ -191,10 +191,6 @@ class ParcoursController extends AbstractController{
             /* Supprimer les points qui ont parcours_id == $idParcoursToDelete
              */
 
-
-
-
-
             $this->em->remove($parcours);
 
             $this->addFlash('success','Parcours supprimé avec succès');
