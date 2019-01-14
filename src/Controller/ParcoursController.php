@@ -184,12 +184,13 @@ class ParcoursController extends AbstractController{
 
         if($this->isCsrfTokenValid('delete' . $parcours->getIdParcours(),$req->get('_token'))){
 
-
             $idParcoursToDelete = $parcours->getIdParcours();
+            $repository = $this->getDoctrine()->getRepository(Points::class);
+            $points = $repository->findBy(['parcours_id' => $parcours]);
 
-            // TODO:
-            /* Supprimer les points qui ont parcours_id == $idParcoursToDelete
-             */
+            foreach ($points as $point){
+                $this->em->remove($point);
+            }
 
             $this->em->remove($parcours);
 
@@ -207,7 +208,6 @@ class ParcoursController extends AbstractController{
     public function getParcours(Request $request) {
         $repository = $this->getDoctrine()->getRepository(Parcours::class);
         $parcours=$repository->findAll();
-        dump($parcours);
 
         $data =  $this->get('serializer')->serialize($parcours, 'json');
 
