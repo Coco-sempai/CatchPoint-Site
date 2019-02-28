@@ -63,17 +63,19 @@ class ParcoursController extends AbstractController{
             $waypoints = json_decode($_POST['waypointsData']);
 
             $err = false;
+            $distanceTotale = 0;
 
             foreach ($waypoints as $key => $waypoint){
-
                 try {
 
                     $waypoint->name;
                     $waypoint->hint;
                     $waypoint->lat;
                     $waypoint->lng;
-
-
+                    if(isset($last)){
+                        $distanceTotale+=self::distance($waypoint->lat,$waypoint->lng,$last->lat,$last->lng);
+                    }
+                    $last = $waypoint;
                 } catch (ErrorException $e) { $err = true; }
             }
 
@@ -98,6 +100,8 @@ class ParcoursController extends AbstractController{
                 return $this->redirectToRoute('home.parcours');
             }
 
+            $parcours->setDistance(round($distanceTotale, 2));
+            $parcours->setDuree(self::calculDuree($distanceTotale,sizeof($waypoints)));
             $this->em->persist($parcours);
             $this->em->flush();
 
@@ -226,7 +230,26 @@ class ParcoursController extends AbstractController{
         $points= $repository->findBy(
             ['depart' => true]
         );
-        dump($points);
+
+        $data =  $this->get('serializer')->serialize($points, 'json');
+
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+
+    /**
+     * @Route("/api/parcours/points/{id}", name="parcours.getPoint", methods={"GET"}))
+     *
+     */
+    public function getPoint(Request $request) {
+        $repository = $this->getDoctrine()->getRepository(Points::class);
+        $repositoryParcours = $this->getDoctrine()->getRepository(Parcours::class);
+        $url = $request->getUri();
+        $parcours = explode("/",$url);
+        $parcours = $repositoryParcours->findBy(['idParcours' => $parcours[sizeof($parcours)-1]]);
+        $points = $repository->findBy(['parcours_id' => $parcours]);
 
         $data =  $this->get('serializer')->serialize($points, 'json');
 
@@ -237,6 +260,33 @@ class ParcoursController extends AbstractController{
 
     }
 
+    /**
+     * Retourne la distance en metre ou kilometre (si $unit = 'k') entre deux latitude et longitude fournit
+     */
+    public static function distance($lat1, $lng1, $lat2, $lng2, $unit = 'k') {
+        $earth_radius = 6378137;   // Terre = sphère de 6378km de rayon
+        $rlo1 = deg2rad($lng1);
+        $rla1 = deg2rad($lat1);
+        $rlo2 = deg2rad($lng2);
+        $rla2 = deg2rad($lat2);
+        $dlo = ($rlo2 - $rlo1) / 2;
+        $dla = ($rla2 - $rla1) / 2;
+        $a = (sin($dla) * sin($dla)) + cos($rla1) * cos($rla2) * (sin($dlo) * sin($dlo));
+        $d = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        //
+        $meter = ($earth_radius * $d);
+        if ($unit == 'k') {
+            return $meter / 1000;
+        }
+        return $meter;
+    }
+
+    /**
+     * Calcul la durée du parcours en fonction de sa distance total et de la vitesse de marche moyenne + 2min par points
+     */
+    public static function calculDuree($distance,$nbPoint){
+        return round($distance/4*60)+2*$nbPoint;
+    }
 }
 
 
